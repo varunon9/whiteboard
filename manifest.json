@@ -1,0 +1,30 @@
+{
+
+  "manifest_version": 2,
+  "name": "Whiteboard",
+  "version": "1.0",
+
+  "description": "Your Whiteboard, basically a text-editor which will remember its content.",
+
+  "icons": {
+    "48": "whiteboard.png"
+  },
+
+  "background": {
+    "scripts": ["whiteboard.js"]
+  },
+
+  "browser_action": {
+    "default_icon": {                    
+      "19": "whiteboard.png",           
+      "38": "whiteboard.png"           
+    },
+    "default_title": "Your Whiteboard"       
+  },
+  "applications": {
+    "gecko": {
+      "id": "whiteboard_varunon9@alley.com"
+    }
+  }
+  
+}

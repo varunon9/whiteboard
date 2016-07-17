@@ -1,0 +1,101 @@
+html {
+	height: 100%;
+}
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-X: hidden;
+}
+#toolbar {
+	position: relative;
+	width: 100%;
+	height: 3%;
+	overflow: hidden;
+	background: #333;
+    padding: 1%;
+    color: white;
+    box-shadow: -2px 2px 1px #888888;
+}
+#toolbar ul {
+	list-style-type: none;
+	display: inline;
+    padding: 0;
+}
+#toolbar ul li {
+	display: inline;
+	margin: 0 5px 0 5px;
+	cursor: pointer;
+	font-size: 16px;
+}
+.arrow {
+	vertical-align: middle;
+}
+#writeArea {
+	position: relative;
+	width: 100%;
+	height: 89%;
+	overflow-X: hidden;
+	padding: 1%;
+	background: #eeeeee;
+	font-size: 15px;
+	font-family: Helvetica;
+}
+#writeArea:focus {
+	outline: none;
+}
+#chooseColor {
+	position: fixed;
+	top: 37px;
+	left: 84px;
+	width: 110px;
+	padding: 0.5%;
+	box-shadow: 1px 2px 1px silver;
+	background: white;
+	z-index: 2;
+}
+.colorBox {
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin: 1px;
+	cursor: pointer;
+}
+#chooseFontSize {
+	position: fixed;
+	top: 37px;
+	width: 58px;
+	left: 122px;
+	box-shadow: 1px 2px 1px silver;
+	background: white;
+	z-index: 2
+}
+.fontSizeBox {
+	margin: 0;
+	float: left;
+	width: 66%;
+	padding: 5px 0 0 21px;
+	height: 23px;
+	cursor: pointer;
+}
+.fontSizeBox:hover {
+	background: silver;
+}
+#chooseFontFamily {
+	position: fixed;
+	top: 37px;
+	left: 160px;
+	box-shadow: 1px 2px 1px silver;
+	background: white;
+	z-index: 2;
+	height: 80%;
+	overflow-Y: scroll;
+}
+.fontFamilyBox {
+	cursor: pointer;
+	padding: 6px;
+}
+.fontFamilyBox:hover {
+	background: silver;
+}

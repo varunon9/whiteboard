@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>Your Whiteboard</title>
+        <meta charset="utf-8"/>
+        <meta name="description" content="Your Whiteboard, basically a text-editor which will remember its content."/>
+        <meta name="author" content="varunon9@gmail.com">
+        <link rel="author" href="https://plus.google.com/u/0/104979787684845609573" />
+        <meta name="viewport" content="width=device-width, height=device-height,  initial-scale=1.0, user-scalable=no,user-scalable=0"/>
+    	<link rel="stylesheet" href="css/main.css">
+    	<script src="js/main.js"></script>
+    </head>
+    <body>
+    	<div id="toolbar">
+    		<ul>
+    			<li title="Bold (Ctrl + b)" id="boldButton">
+    				B
+    			</li>
+    			<li title="Underline (Ctrl + u)" id="underlineButton">
+    				<u>U</u>
+    			</li>
+    			<li title="Italic (Ctrl + i)" id="italicButton">
+    				<i>I</i>
+    			</li>
+    			<li title="Text Color" id="textColorButton">
+    				A <img class="arrow" src="images/downArrow.png"/>
+    			</li>
+    			<li title="Font Size" id="fontSizeButton">
+    				<span>3</span> <img class="arrow" src="images/downArrow.png"/>
+    			</li>
+    			<li title="Font Family" id="fontFamilyButton">
+    				<span>Helvetica</span> <img class="arrow" src="images/downArrow.png"/>
+    			</li>
+                <li title="(Ctrl + z)" id="undoButton">
+                    Undo
+                </li>
+                <li title="(Ctrl + Shift + z)" id="redoButton">
+                    Redo
+                </li>
+    		</ul>
+    	</div>
+    	<div contenteditable="true" id="writeArea">
+    		Your text goes here ...
+    	</div>
+    	<div id="chooseColor">
+    	</div>
+        <div id="chooseFontSize">
+        </div>
+        <div id="chooseFontFamily">
+        </div>
+    </body>
+</html>

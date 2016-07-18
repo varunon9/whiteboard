@@ -13,10 +13,30 @@
 	    'purple', 'maroon', 'olive', 'silver', 'navy', 'teal'
 	];
 	var functions = {
+		buildElement: function (tag, className, styleObject, text) {
+			var element = documentObject.createElement(tag);
+			if (className) {
+				element.className = className;
+			}
+			//setting style
+			if (styleObject) {
+				Object.keys(styleObject).forEach(function (key) {
+					element.style[key] = styleObject[key];
+				});
+			}
+			if (text) {
+				var textNode = documentObject.createTextNode(text);
+			    element.appendChild(textNode);
+			}
+			return element;
+		},
 		addColorBoxes: function (chooseColorDiv) {
 			for (var i = 0; i < fontColorArray.length; i++) {
-				var colorBox = '<div class="colorBox" style="background: ' + fontColorArray[i] + '"></div>';
-				chooseColorDiv.innerHTML += colorBox;
+				var styleObject = {
+					background: fontColorArray[i]
+				};
+				var colorBox = functions.buildElement('div', 'colorBox', styleObject, null);
+				chooseColorDiv.appendChild(colorBox)
 			}
 		},
 		toggleDisplay: function (element) {
@@ -24,15 +44,17 @@
 		},
 		addFontSizeBoxes: function (chooseFontSizeDiv) {
 			for (var i = 0; i < fontSizeArray.length; i++) {
-				var fontSizeBox = '<div class="fontSizeBox">' + fontSizeArray[i] + '</div>';
-				chooseFontSizeDiv.innerHTML += fontSizeBox;
+				var fontSizeBox = functions.buildElement('div', 'fontSizeBox', null, fontSizeArray[i]);
+				chooseFontSizeDiv.appendChild(fontSizeBox);
 			}
 		},
 		addFontFamilyBoxes: function (chooseFontFamilyDiv) {
 			for (var i = 0; i < fontFamilyArray.length; i++) {
-				var fontFamilyBox = 
-				    '<div class="fontFamilyBox" style="font-family: ' + fontFamilyArray[i] + '">' + fontFamilyArray[i] + '</div>';
-				chooseFontFamilyDiv.innerHTML += fontFamilyBox;
+				var styleObject = {
+					fontFamily: fontFamilyArray[i]
+				};
+				var fontFamilyBox = functions.buildElement('div', 'fontFamilyBox', styleObject, fontFamilyArray[i]);
+				chooseFontFamilyDiv.appendChild(fontFamilyBox);
 			}
 		},
 		changeFontColor: function (event) {
@@ -49,18 +71,15 @@
 		changeFontFamily: function (event) {
 			var element = event.target || event.srcElement;
 			var fontFamily = element.style.fontFamily;
-			documentObject.querySelector('#toolbar ul li:nth-child(6) span').innerHTML = fontFamily;
+			documentObject.querySelector('#toolbar ul li:nth-child(6) span').firstChild.nodeValue = fontFamily;
 			//documentObject.execCommand('styleWithCSS', false, true);
 			documentObject.execCommand('fontName', false, fontFamily);
 			event.preventDefault();
 		},
 		changeFontSize: function (event) {
 			var element = event.target || event.srcElement;
-			var fontSize = element.innerHTML;
-			documentObject.querySelector('#toolbar ul li:nth-child(5) span').innerHTML = fontSize;	
-			/*var spanString = 
-			    '<span style="font-size: ' + fontSize + 'px">' + windowObject.getSelection().toString() +'</span>';	
-			documentObject.execCommand('insertHTMl', false, spanString);*/	
+			var fontSize = element.firstChild.nodeValue;
+			documentObject.querySelector('#toolbar ul li:nth-child(5) span').firstChild.nodeValue = fontSize;		
 			documentObject.execCommand('fontSize', false, fontSize);
 			event.preventDefault();
 		}
@@ -84,7 +103,7 @@
 		if (documentText) {
 			writeAreaDiv.innerHTML = documentText;
 		} else {
-			writeAreaDiv.innerHTML = 'Your text goes here...';
+			writeAreaDiv.text = 'Your text goes here...';
 		}
 		//adding color to choose from
 		functions.addColorBoxes(chooseColorDiv);

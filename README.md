@@ -7,3 +7,6 @@ Install Firefox addon
 ---------------------
 
 https://addons.mozilla.org/en-US/firefox/addon/whiteboard/
+
+### Blog
+https://medium.com/@varunon9
